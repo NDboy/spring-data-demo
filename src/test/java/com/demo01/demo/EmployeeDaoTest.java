@@ -77,4 +77,13 @@ class EmployeeDaoTest {
 
     }
 
+    @Test
+    void testFindByNameStartingWith() {
+        employeeRepository.save(new Employee("John Doe"));
+
+        List<Employee> employees = employeeRepository.findByNameStartingWith("Jo");
+
+        assertEquals("John Doe", employees.get(0).getName());
+    }
+
 }
